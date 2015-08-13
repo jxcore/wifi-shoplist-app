@@ -1,0 +1,159 @@
+
+.jx-txt-color-orangeDark {
+    color: #ffffff!important;
+}
+
+.widget-body {
+    min-height: auto!important;
+}
+
+.fixed-header #header {
+    /* problem on android stock browser */
+    box-shadow: none!important;
+}
+
+#main {
+    min-height: 0px;
+    padding-bottom: 0px;
+}
+
+.MessageBoxContainer {
+    top: 0px;
+}
+
+.form-horizontal .control-label {
+	text-align:left;
+}
+
+table td {
+    vertical-align: middle!important;
+}
+
+.MessageBoxMiddle input {
+    width: 100%;
+}
+
+.form-control {
+  font-size:12pt;
+}
+
+label {
+  font-size:12pt;
+  font-weight:300;
+}
+
+.table-bordered > thead > tr > th {border-color: #6699bb }
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {border-color: #6699bb }
+td {border-color: #6699bb }
+
+body { background: #6699bb }
+
+html { background: #6699bb }
+
+#header { height: 68px }
+
+#header > div {
+  margin-top:18px;
+  margin-right:11px;
+  margin-left:11px;
+}
+
+h1 {
+  font-size: 13pt;
+}
+
+.table {
+  background-color: #f9f9f9;
+}
+
+#header-caption {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+#header-caption-container {
+    width: 100px;
+}
+
+#header > *:first-child  {
+    width: auto!important;
+}
+
+#header-buttons-right {
+    background-color: inherit;
+}
+
+
+#error-badge {
+    padding: 2px 6px;
+    margin-left: -3px;
+    margin-top: -3px;
+    position: absolute;
+    z-index: 99;
+}
+
+.page-footer {
+    border: none;
+    height: auto !important;
+    padding: 10px!important;
+}
+
+
+#footer-caption {
+    vertical-align: middle;
+    /*height: 100% !important;*/
+}
+
+.btn {
+  box-shadow:none;
+  line-height:1.2;
+}
+
+.btn-sm {
+ padding:0;
+ line-height:1.2;
+}
+
+.btn-default {
+  border-color: transparent;
+  background-color:transparent;
+  color:#ffffff;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+ font-size: 130%;
+}
+
+.table {
+  background-color: transparent;
+}
+
+.btn-toggle {
+  width: 41px;
+  background-color: #ffffff;
+}
+
+.MessageBoxButtonSection button {
+  font-size:140%;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+  border-color:transparent;
+}
+
+#item-details {
+    overflow-x: hidden;
+    width:100%;
+    color:white;
+    border-color:transparent;
+}
+
+#item-details label {
+  margin-bottom: 5px;
+}
+
+.well {
+  background-color:transparent;
+  border-color:transparent;
+  box-shadow:none;
+}

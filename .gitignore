@@ -1,0 +1,8 @@
+jxcore-cordova/
+.idea/
+platforms/android/
+platforms/ios/
+plugins/
+platforms/platforms.json
+
+plugins/fetch.json

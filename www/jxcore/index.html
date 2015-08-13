@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>WiFi Shoplist</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- #CSS Links -->
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="html/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="html/css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+		<link rel="stylesheet" type="text/css" media="screen" href="html/css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="html/css/smartadmin-skins.min.css">
+
+		<link rel="stylesheet" type="text/css" media="screen" href="html/jx/css/style.css">
+		
+		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<!-- Startup image for web apps -->
+		<link rel="apple-touch-startup-image" href="html/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+		<link rel="apple-touch-startup-image" href="html/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+		<link rel="apple-touch-startup-image" href="html/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+	</head>
+
+	<body class="smart-skin smart-style-1 menu-on-top fixed-header fixed-page-footer">
+		<!-- HEADER -->
+		<header id="header">
+
+			<div class="pull-left">
+				<div class="btn-header pull-left margin-right-5 hidden" id="nav-back" style="margin-left: 5px">
+					<span><a title="Go Back" href="javascript:SL.goBack();" ><i class="fa fa-arrow-left"></i></a> </span>
+				</div>
+				<div id="header-caption-container" style="vertical-align: middle; margin-left: 5px; padding-top: 5px;">
+					<h1 class="pull-left margin-right-5" style="font-size:24px">
+						<i class="fa fa-shopping-cart txt-color-orangeDark"></i>
+					</h1>
+
+					<h1 class="header txt-color-yellow" id="header-caption">
+						<span class="txt-color-white">
+							WiFi Shoplist
+						</span>
+					</h1>
+				</div>
+
+			</div>
+
+			<div class="pull-right" id="header-buttons-right">
+
+				<div id="btn-info" class="btn-header pull-right">
+					<span>
+						<b id="error-badge" class="badge bg-color-white bounceIn animated txt-color-red"></b>
+						<a title="About" href="javascript:jx.dialogs.info();void(0);" ><i class="fa fa-info"></i></a>
+					</span>
+				</div>
+
+				<div class="btn-header pull-right hidden margin-right-5" id="item-save">
+					<span> <a title="Save" href="javascript:SL.items.save();void(0);" ><i class="fa fa-save"></i></a> </span>
+				</div>
+
+				<div class="btn-header pull-right margin-right-5" id="add-new">
+					<span> <a title="Create a new list" href="javascript:SL.addNew();void(0);" ><i class="fa fa-plus"></i></a> </span>
+				</div>
+
+			</div>
+
+		</header>
+		<!-- END HEADER -->
+
+		<!-- MAIN PANEL -->
+		<div id="main" role="main" style="margin-top: 12px !important;">
+
+			<!-- MAIN CONTENT -->
+			<div id="content" class="hidden">
+
+			</div>
+
+			<div id="txtDebug" class="padding-5" style="overflow: scroll; height: 400px; display: none;">
+
+			</div>
+			<!-- END MAIN CONTENT -->
+
+		</div>
+
+		<div class="page-footer">
+			<span id="footer-caption" class="txt-color-white"></span>
+		</div>
+
+		<script src="html/js/libs/jquery-2.0.2.min.js"></script>
+		<script src="html/js/libs/jquery-ui-1.10.3.min.js"></script>
+
+		<!-- BOOTSTRAP JS -->
+		<script src="html/js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="html/js/notification/SmartNotification.min2.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="html/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- FastClick: For mobile devices -->
+		<script src="html/js/plugin/fastclick/fastclick.min.js"></script>
+
+		<!-- CORDOVA -->
+		<script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../jxcore.js"></script>
+		<!-- END CORDOVA -->
+
+		<!-- MAIN APP JS FILE -->
+		<script src="html/js/app.min.js"></script>
+
+		<script src="html/jx/js/dialogs.js"></script>
+		<script src="html/jx/js/app_browser.js"></script>
+		<script src="html/jx/js/utils.js"></script>
+
+		<script type="text/javascript">
+
+			var start = new Date();
+
+			function log(x) {
+//				return;
+				if (jx && jx.dialogs)
+					jx.dialogs.logDebug(x);
+			}
+
+			$(document).ready(function() {
+
+				pageSetUp();
+
+				/* CORDOVA */
+				// This block will be visible only in WebViews and is needed only to load app.js
+				// When accessing through external browser - jxm will remove that block (in main.js)
+				window.jxUsesCordova = true;
+
+				var loadJXM = function(params) {
+//					jx.utils.registerClientMethods();
+//					jx.utils.initApp();
+				};
+
+				var fromCordovaServer = function(methodName, params) {
+					if (window[methodName])
+						window[methodName](params);
+				};
+
+				var inter = setInterval(function () {
+//					log("checking");
+					if (
+							typeof jxcore === 'undefined' ||
+							typeof jx === "undefined" ||
+							typeof jx.utils === "undefined" ||
+							typeof jx.dialogs === "undefined"
+					)
+						return;
+
+					jx.dialogs.logDebug("found jxcore");
+					clearInterval(inter);
+
+					// sign-up for jxcore.isReady event
+					jxcore.isReady(function () {
+						// register log method from UI to jxcore instance
+						// so you can call it (app.js) cordova('log').cal(...)
+						jxcore('log').register(log);
+						jxcore('loadJXM').register(loadJXM);
+						jxcore('fromCordovaServer').register(fromCordovaServer);
+
+						jx.dialogs.logDebug("loading main file " + (new Date() - start));
+						// set the main file and load.
+						jxcore('app.js').loadMainFile(function (ret, err) {
+							if (err) {
+								var msg;
+								if (!err || err.replace)
+									msg = err;
+								else
+									msg = JSON && JSON.stringify ? JSON.stringify(err) : err;
+
+								alert(msg);
+							} else {
+								// now waiting for jxcore to call loadJXM defined here before
+								jx.dialogs.logDebug("cordova ready" + (new Date() - start));
+								jx.utils.registerClientMethods();
+								jx.utils.initApp();
+							}
+						});
+					});
+				}, 5);
+
+				return;
+				/* END CORDOVA */
+
+				/* the block below will run only for non-cordova clients */
+
+
+				window.jxUsesCordova = false;
+				var loadJXM = function(params) {
+//					jx.dialogs.logDebug("loadJXM " + params);
+					jx.utils.loadjxm(params, function () {
+
+//						jx.dialogs.logDebug("All done after " + (new Date() - start));
+
+						jxm.OnClose = function (reconnecting) {
+							if (jx.utils.needReload)
+								return;
+							log("JXM Disconnected, reconnecting? " + reconnecting);
+							jx.dialogs.lostConnection.show();
+							if (!reconnecting)
+								jxm.ReConnect();
+						};
+
+						jxm.OnError = function (err) {
+							log("JXM Error: " + err);
+						}
+					});
+				};
+
+				// the value will be set at runtime
+				loadJXM({ url : "{{jxmUrl}}" });
+			});
+
+		</script>
+
+	</body>
+
+</html>

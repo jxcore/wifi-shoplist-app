@@ -1,0 +1,27 @@
+<tr id="{{listID}}">
+    <td class="no-padding">
+          <div class="btn-header pull-left">
+          <span>
+              <a  id="{{listID}}-caption" style="background-color:transparent;border:none;font-size:12pt;font-weight:200">
+               <nobr> {{list-caption}}</nobr>
+              </a>
+          </span>
+      </div>
+        
+        <div class="btn-header pull-right">
+            <span>
+                <a title="Trash" href="javascript:SL.removeListFromTable('{{listID}}');">
+                    <i class="fa fa-trash-o fa-lg"></i>
+                </a>
+            </span>
+        </div>
+
+        <div class="btn-header pull-right margin-right-5">
+            <span>
+                <a title="Edit" href="javascript:SL.showListDetails('{{listID}}');">
+                    <i class="fa fa-pencil fa-lg"></i>
+                </a>
+            </span>
+        </div>
+    </td>
+</tr>

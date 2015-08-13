@@ -1,0 +1,44 @@
+<div id="item-details" class="well">
+	<form class="form-horizontal" style="border-color: transparent;">
+		<fieldset>
+
+			<div class="form-group">
+				<label class="col-md-10 control-label">Item Name</label>
+
+				<div class="col-md-10">
+					<input id="{{itemID}}-caption" type="text" class="form-control"
+						value="{{item-caption}}" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-10 control-label">Item Account</label>
+
+				<div class="col-md-10">
+					<input id="{{itemID}}-amount" type="number"
+						class="form-control restrict-numbers" value="{{item-amount}}" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-10 control-label">Measurement Type</label>
+
+				<div class="col-md-10">
+					<select id="{{itemID}}-amount_type" class="form-control"
+						style="margin-left: 1px;"> {{item-options}}
+					</select>
+				</div>
+			</div>
+
+
+			<div class="form-group" id="item-notes-label">
+				<label class="col-md-10 control-label">Additional Notes</label>
+
+				<div class="col-md-10" id="item-notes">
+					<textarea id="{{itemID}}-notes" rows="4" class="form-control">{{item-notes}}</textarea>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>

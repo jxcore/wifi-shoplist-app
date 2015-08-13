@@ -1,0 +1,34 @@
+<tr id="{{itemID}}">
+    <td class="no-padding" style="width: 50px!important;">
+        <a id="{{itemID}}-btn" class="btn btn-default btn-toggle"
+           href="javascript:SL.toggleItemState('{{listID}}', '{{itemID}}');">
+            {{item-state-html}}
+        </a>
+    </td>
+    <td>
+
+      <div class="btn-header pull-left">
+          <span>
+              <a  id="{{itemID}}-caption" style="background-color:transparent;border:none;font-size:11pt;font-weight:200">
+               <nobr> {{item-caption}} <span style="font-size:9pt">({{item-amount}} {{item-amount_type}}) </span> </nobr>
+              </a>
+          </span>
+      </div>
+
+      <div class="btn-header pull-right">
+          <span>
+              <a title="Trash" href="javascript:SL.removeItemFromList('{{listID}}', '{{itemID}}');">
+                  <i class="fa fa-trash-o fa-lg"></i>
+              </a>
+          </span>
+      </div>
+
+      <div class="btn-header pull-right margin-right-5">
+          <span>
+              <a title="Edit" href="javascript:SL.showItemDetails('{{listID}}', '{{itemID}}');">
+                  <i class="fa fa-pencil fa-lg"></i>
+              </a>
+          </span>
+      </div>
+    </td>
+</tr>
