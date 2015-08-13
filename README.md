@@ -3,7 +3,7 @@
 Source code repository for Android and iOS. 
 
 This is the first node.js application on iOS app store. We developed this application 
-using [JXcore][https://github.com/jxcore/jxcore], [JXcore Cordova](https://github.com/jxcore/jxcore-cordova) and
+using [JXcore](https://github.com/jxcore/jxcore), [JXcore Cordova](https://github.com/jxcore/jxcore-cordova) and
 [Cordova](https://cordova.apache.org/)
 
 #### Installation
